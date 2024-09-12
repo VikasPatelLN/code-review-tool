@@ -131,7 +131,7 @@
             success: function(data){
 
                 let card = $('<div>').addClass('card pr-card').css('display', 'none');
-console.log(data);
+
                 $.each(data, function(index, element) {
                     let cardHeader = $('<div>').addClass('card-header');
                     let cardBody = $('<div>').addClass('card-body');
