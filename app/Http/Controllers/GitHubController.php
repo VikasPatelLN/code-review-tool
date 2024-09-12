@@ -67,7 +67,7 @@ class GitHubController extends Controller
 
             $this->requestOptions['headers']['Accept'] = 'application/vnd.github.html+json';
 
-            $fileContentResponse = $this->httpClient->get($item['contents_url'], $this->requestOptions);
+                $fileContentResponse = $this->httpClient->get($item['contents_url'], $this->requestOptions);
 
             $responseData[$key]['file_content'] = $fileContentResponse->getBody()->getContents();
         });

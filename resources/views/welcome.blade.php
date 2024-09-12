@@ -131,7 +131,7 @@
             success: function(data){
 
                 let card = $('<div>').addClass('card pr-card').css('display', 'none');
-
+console.log(data);
                 $.each(data, function(index, element) {
                     let cardHeader = $('<div>').addClass('card-header');
                     let cardBody = $('<div>').addClass('card-body');
@@ -178,7 +178,8 @@
                     let cardHeader = $('<div>').addClass('card-header');
                     let cardBody = $('<div>').addClass('card-body');
                     let cardTitle = $('<h5>').addClass('card-title review-title-css').text(index).css('text-weight', 'bold');
-                    let cardText = $('<div>').addClass('card-text').html(element);
+                    let content = element.replace(/\n/g, "<br>");
+                    let cardText = $('<div>').addClass('card-text').html(content);
 
                     card.append(cardHeader);
                     card.append(cardBody);
@@ -187,6 +188,9 @@
                 })
 
                 $('.review-result-'+indexElement).html(card).show();
+                $('.loading').hide();
+            },
+            error: function(data) {
                 $('.loading').hide();
             }
         });
@@ -197,13 +201,12 @@
 
 <style>
     .title-css{
-        border: 1px solid;
-        border-color: red;
+        border: 2px solid red;
     }
 
     .review-title-css{
-        border: 1px solid;
-        border-color: green;
+        border: 2px solid green;
+        font-weight: bold;
     }
 
     /* Absolute Center Spinner */
