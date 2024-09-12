@@ -115,15 +115,11 @@
 <script>
 
     $(document).ready(function() {
-        // Get the screenshot container
-        console.log('test');
     });
 
 
     function getFilesAndContent(evt) {
         $('.pr-card').hide();
-        console.log(evt);
-        console.log(evt.target.value);
 
         $.ajax({
             type: "GET",
@@ -135,8 +131,8 @@
             success: function(data){
 
                 let card = $('<div>').addClass('card pr-card').css('display', 'none');
-                $.each(data, function(index, element) {
 
+                $.each(data, function(index, element) {
                     let cardHeader = $('<div>').addClass('card-header');
                     let cardBody = $('<div>').addClass('card-body');
                     let cardTitle = $('<h5>').addClass('card-title title-css').text('File : ' + element.file_name);
@@ -166,7 +162,7 @@
 
         $('.loading').show();
         $('.review-result-'+indexElement).hide();
-        console.log(content_url);
+
         $.ajax({
             type: "GET",
             url: "/ai-code-review",
